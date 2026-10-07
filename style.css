@@ -1,0 +1,139 @@
+:root {
+  --bg: #ffffff;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --line: #d1d5db;
+  --panel: #f9fafb;
+  --accent: #0e7c8f;
+  --accent-dark: #0b5563;
+  --nodata: #f3f4f6;
+  font-family: Calibri, "Segoe UI", system-ui, -apple-system, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15191b;
+    --ink: #e8ecee;
+    --muted: #9aa6ad;
+    --line: #34403f;
+    --panel: #1d2326;
+    --accent: #4fa8b8;
+    --accent-dark: #9cc9d1;
+    --nodata: #262d31;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15191b; --ink: #e8ecee; --muted: #9aa6ad; --line: #34403f;
+  --panel: #1d2326; --accent: #4fa8b8; --accent-dark: #9cc9d1; --nodata: #262d31;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { background: var(--bg); color: var(--ink); }
+
+header.site {
+  position: absolute;
+  z-index: 1000;
+  top: 0; left: 0; right: 0;
+  padding: 14px 18px;
+  background: linear-gradient(var(--bg) 60%, transparent);
+  pointer-events: none;
+}
+header.site h1 { margin: 0; font-size: 1.25rem; color: var(--ink); }
+header.site p { margin: 2px 0 0; font-size: 0.85rem; color: var(--muted); max-width: 46ch; }
+
+#map { position: absolute; inset: 0; background: var(--bg); }
+#map .leaflet-tile-pane { filter: grayscale(35%) brightness(1.04) contrast(0.95); }
+#map .leaflet-top.leaflet-left { margin-top: 112px; }
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px 14px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  color: var(--ink);
+  font-size: 0.85rem;
+}
+
+.pollutant-control .panel { min-width: 150px; }
+.pollutant-control h2 {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+.pollutant-control button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  padding: 6px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 2px;
+}
+.pollutant-control button:hover { background: var(--nodata); }
+.pollutant-control button.active {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.legend .panel { width: 230px; }
+.legend h2 {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+.legend .gradient {
+  height: 10px;
+  border-radius: 5px;
+  margin-bottom: 4px;
+  background: linear-gradient(to right, #f9fafb, #9cc9d1, #4fa8b8, #0e7c8f, #0b5563);
+  border: 1px solid var(--line);
+}
+.legend .ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+.legend .nodata-key {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.legend .nodata-swatch {
+  width: 12px; height: 12px; border-radius: 3px;
+  background: var(--nodata);
+  border: 1px solid var(--line);
+}
+
+.district-tooltip {
+  font-family: Calibri, "Segoe UI", system-ui, sans-serif;
+  font-size: 0.85rem;
+}
+.district-tooltip b { color: var(--accent-dark); }
+
+footer.site {
+  position: absolute;
+  z-index: 1000;
+  bottom: 0; left: 0; right: 0;
+  padding: 8px 14px;
+  font-size: 0.75rem;
+  color: var(--muted);
+  background: linear-gradient(transparent, var(--bg) 70%);
+  pointer-events: none;
+}

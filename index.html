@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Postcode Pollution Coverage</title>
+<meta name="description" content="Interactive map of pollution-monitoring coverage by Scottish postcode district.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%230e7c8f%22/%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%229%22 fill=%22none%22 stroke=%22white%22 stroke-width=%222.2%22/%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%223%22 fill=%22white%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="map"></div>
+<header class="site">
+  <h1>Postcode pollution-monitoring coverage</h1>
+  <p>Fixed-denominator coverage by postcode district, 1994&ndash;2020. Spatial snapshot only &mdash; a year-by-year view is planned.</p>
+</header>
+<footer class="site">Source: analyse_pollution_coverage.py &middot; boundaries: National Records of Scotland postcode cut, dissolved to district.</footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
